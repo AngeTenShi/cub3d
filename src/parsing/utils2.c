@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 16:14:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/10/29 18:56:40 by anggonza         ###   ########.fr       */
+/*   Created: 2022/10/29 19:04:00 by anggonza          #+#    #+#             */
+/*   Updated: 2022/10/29 19:04:25 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void    free_map(char **map)
+int	ft_at_least_one(char **map)
 {
-    int i;
-
-    i = 0;
-    while (i < ft_strlenn(map))
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
+	if (count_occ(map, 'P') != 1 || count_occ(map, 'E') < 1
+		|| count_occ(map, 'C') < 1)
+		return (-1);
+	return (1);
 }
