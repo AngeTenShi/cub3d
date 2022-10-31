@@ -6,11 +6,12 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 10:47:48 by anggonza          #+#    #+#             */
-/*   Updated: 2021/11/03 12:01:06 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/10/31 13:22:52 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static char	*ft_strndup(char *s, int n)
 {
@@ -19,7 +20,7 @@ static char	*ft_strndup(char *s, int n)
 
 	i = 0;
 	str = (char *)malloc(n + 1);
-	while (i <= n)
+	while (i < n)
 	{
 		str[i] = s[i];
 		i++;
@@ -54,7 +55,7 @@ static char	*ft_strtrunk(char *s, char c)
 	if (!tmp)
 		return (NULL);
 	tmp[0] = c;
-	tmp[1] = '0';
+	tmp[1] = 0;
 	s = ft_strtrim(s, (const char *)tmp);
 	if (!s)
 		return (NULL);
@@ -97,7 +98,7 @@ char	**ft_split(char const *s, char c)
 		v.j = v.i + 1;
 		while (v.str[v.j] != c && v.str[v.j] != '\0')
 			v.j++;
-		v.result[v.index++] = ft_strndup((char *)(v.str + v.i), v.j - v.i - 1);
+		v.result[v.index++] = ft_strndup((char *)(v.str + v.i), v.j - v.i);
 		v.i = v.j;
 	}
 	free(v.str);
