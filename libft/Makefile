@@ -6,7 +6,7 @@
 #    By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 16:46:30 by anggonza          #+#    #+#              #
-#    Updated: 2021/11/03 11:45:34 by anggonza         ###   ########.fr        #
+#    Updated: 2022/10/31 12:32:52 by anggonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ OBJS_BONUS = ${BONUS:.c=.o}
 
 HEADER	= includes
 
-CC		= gcc
+CC		= gcc -g
 RM		= rm -f
 AR		= ar rcs
 
