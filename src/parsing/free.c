@@ -6,21 +6,21 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 16:14:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/10/29 18:56:40 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:29:04 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void    free_map(char **map)
+void	free_map(char **map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < ft_strlenn(map))
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
+	i = 0;
+	while (i < ft_strlenn(map))
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
