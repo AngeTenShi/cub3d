@@ -33,10 +33,8 @@ int	index_begin_map(char **map)
 int	ft_check_doubleret(char *map)
 {
 	size_t	i;
-	int		j;
 	int		in_map;
 
-	j = 0;
 	i = 2;
 	in_map = 0;
 	while (i < ft_strlen(map))

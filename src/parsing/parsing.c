@@ -26,6 +26,32 @@ int	check_format(char *map_path)
 	return (1);
 }
 
+int	check_wall(char **map, int i, int begin, int left)
+{
+	int	size;
+
+	size = begin;
+	if (left)
+	{
+		if (i == ft_strlenn(map))
+			return (1);
+		else if (map[i][begin] != '1')
+			return (0);
+		else
+			return (check_wall(map, i + 1, begin, left));
+	}
+	else
+	{
+		if (i == ft_strlenn(map) - index_begin_map(map))
+			return (1);
+		if (map[i][begin] != '1')
+			return (0);
+		while (map[i][size] == '1')
+			size++;
+		return (check_wall(map, i + 1, size - 1, 0));
+	}
+}
+
 static int	ft_check_line_wall(char *map)
 {
 	int	i;
@@ -81,8 +107,11 @@ int	parse_args(char **av)
 	replace_space_by_zero(map);
 	if (!ft_at_least_one(map))
 		display_error("Invalid map\n");
-	if (!ft_check_wall(map))
-		display_error("Map not close\n");
+	//if (!ft_check_wall(map))
+	//display_error("Map not close\n");
+	if (!check_wall(map, index_begin_map(map), 0, 0)
+		|| !check_wall(map, index_begin_map(map), 0, 1))
+		display_error("Map not close !\n");
 	free_map(map);
 	return (1);
 }
